@@ -1,6 +1,6 @@
 package com.blog.services.impl;
 
-import com.blog.dtos.UserDto;
+import com.blog.payload.UserDto;
 import com.blog.entities.User;
 import com.blog.exceptions.ResourceNotFoundException;
 import com.blog.repositories.UserRepo;

@@ -1,7 +1,7 @@
 package com.blog.controllers;
 
-import com.blog.dtos.ApiResponse;
-import com.blog.dtos.UserDto;
+import com.blog.payload.ApiResponse;
+import com.blog.payload.UserDto;
 import com.blog.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

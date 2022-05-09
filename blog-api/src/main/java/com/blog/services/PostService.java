@@ -1,6 +1,7 @@
 package com.blog.services;
 
-import com.blog.dtos.PostDto;
+import com.blog.payload.PostDto;
+import com.blog.payload.PostResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 public interface PostService {
 
     PostDto getPostById(Integer postId);
-    List<PostDto> getAllPosts();
+    PostResponse getAllPosts(Integer pageNumber, Integer pageSize);
     List<PostDto> getPostsByCategory(Integer categoryId);
     List<PostDto> getPostsByUser(Integer userId);
     PostDto createPost(PostDto postDto, Integer userId, Integer categoryId);

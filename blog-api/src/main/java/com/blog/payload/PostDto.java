@@ -1,4 +1,4 @@
-package com.blog.dtos;
+package com.blog.payload;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

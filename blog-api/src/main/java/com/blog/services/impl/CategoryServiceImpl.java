@@ -1,6 +1,6 @@
 package com.blog.services.impl;
 
-import com.blog.dtos.CategoryDto;
+import com.blog.payload.CategoryDto;
 import com.blog.entities.Category;
 import com.blog.exceptions.ResourceNotFoundException;
 import com.blog.repositories.CategoryRepo;

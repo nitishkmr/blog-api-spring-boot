@@ -1,6 +1,6 @@
 package com.blog.exceptions;
 
-import com.blog.dtos.ApiResponse;
+import com.blog.payload.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         Map<String, String> response = new HashMap<>();
-        ex.getBindingResult().getAllErrors().forEach((err) -> {
+        ex.getBindingResult().getAllErrors().forEach(err -> {
             String fieldName = ((FieldError) err).getField();
             String message = err.getDefaultMessage();
             response.put(fieldName, message);
