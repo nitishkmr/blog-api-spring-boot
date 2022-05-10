@@ -1,16 +1,15 @@
 package com.blog.services.impl;
 
-import com.blog.payload.PostDto;
 import com.blog.entities.Category;
 import com.blog.entities.Post;
 import com.blog.entities.User;
 import com.blog.exceptions.ResourceNotFoundException;
+import com.blog.payload.PostDto;
 import com.blog.payload.PostResponse;
 import com.blog.repositories.CategoryRepo;
 import com.blog.repositories.PostRepo;
 import com.blog.repositories.UserRepo;
 import com.blog.services.PostService;
-import javafx.geometry.Pos;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
