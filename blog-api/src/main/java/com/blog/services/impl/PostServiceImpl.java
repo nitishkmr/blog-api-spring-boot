@@ -10,6 +10,7 @@ import com.blog.repositories.CategoryRepo;
 import com.blog.repositories.PostRepo;
 import com.blog.repositories.UserRepo;
 import com.blog.services.PostService;
+import javafx.geometry.Pos;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -113,7 +114,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> searchPosts(String keyword) {
-        // todo, pagination
-        return null;
+        List<Post> posts = this.postRepo.searchByTitle("%"+keyword+"%");
+        return posts.stream().map(post -> this.modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
     }
 }
