@@ -1,10 +1,13 @@
 package com.blog.payload;
 
+import com.blog.entities.Comment;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,4 +20,5 @@ public class PostDto {
     private Date addedDate;
     private UserDto user;
     private CategoryDto category;
+    private List<CommentDto> comments = new LinkedList<>();
 }
