@@ -6,6 +6,7 @@ import com.blog.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -39,7 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .antMatchers("/api/v1/auth/login").permitAll()  // to make this url public and outside spring security
+                .antMatchers("/api/v1/auth/**").permitAll()  // to make this url public and outside spring security
+                .antMatchers(HttpMethod.GET).permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(this.jwtAuthenticationEntryPoint)
                 .and().sessionManagement()

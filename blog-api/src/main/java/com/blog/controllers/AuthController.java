@@ -2,7 +2,9 @@ package com.blog.controllers;
 
 import com.blog.payload.JwtAuthRequest;
 import com.blog.payload.JwtAuthResponse;
+import com.blog.payload.UserDto;
 import com.blog.security.JwtTokenHelper;
+import com.blog.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,9 @@ public class AuthController {
     private UserDetailsService userDetailsService;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     @PostMapping("/login")
@@ -44,5 +49,11 @@ public class AuthController {
     private void authenticate(String username, String password) throws AuthenticationException {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
         this.authenticationManager.authenticate(authenticationToken);
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<UserDto> registerUsr(@RequestBody UserDto userDto) {
+        UserDto registeredUser = this.userService.registerNewUser(userDto);
+        return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
     }
 }
